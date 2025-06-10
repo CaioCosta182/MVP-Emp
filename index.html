@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma de Serviços</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Plataforma de Serviços</h1>
+
+      <div class="tabs">
+        <button class="tab active" onclick="openTab('userTab')">
+          Cadastrar Usuário
+        </button>
+        <button class="tab" onclick="openTab('serviceTab')">
+          Ofertar Serviço
+        </button>
+        <button class="tab" onclick="openTab('demandTab')">
+          Demandar Serviço
+        </button>
+        <button class="tab" onclick="openTab('listTab')">Listagens</button>
+      </div>
+
+      <div id="userTab" class="tab-content active">
+        <h2>Cadastro de Usuário</h2>
+        <form id="userForm">
+          <label for="userName">Nome:</label>
+          <input type="text" id="userName" required />
+
+          <label for="userEmail">Email:</label>
+          <input type="email" id="userEmail" required />
+
+          <label for="userPhone">Telefone:</label>
+          <input type="tel" id="userPhone" />
+
+          <label for="userType">Tipo de Usuário:</label>
+          <select id="userType" required>
+            <option value="">Selecione...</option>
+            <option value="professional">Profissional (Oferta serviços)</option>
+            <option value="client">Cliente (Demanda serviços)</option>
+            <option value="both">Ambos</option>
+          </select>
+
+          <label for="userSkills"
+            >Habilidades/Interesses (separados por vírgula):</label
+          >
+          <input
+            type="text"
+            id="userSkills"
+            placeholder="Ex: encanador, eletricista, pedreiro"
+          />
+
+          <button type="submit">Cadastrar Usuário</button>
+        </form>
+      </div>
+
+      <div id="serviceTab" class="tab-content">
+        <h2>Ofertar Serviço</h2>
+        <form id="serviceForm">
+          <label for="serviceUser">Usuário:</label>
+          <select id="serviceUser" required>
+            <option value="">Selecione um usuário</option>
+          </select>
+
+          <label for="serviceCategory">Categoria do Serviço:</label>
+          <input
+            type="text"
+            id="serviceCategory"
+            required
+            placeholder="Ex: Encanamento"
+          />
+
+          <label for="serviceDescription">Descrição:</label>
+          <textarea id="serviceDescription" rows="3" required></textarea>
+
+          <label for="serviceValue">Valor (R$):</label>
+          <input type="number" id="serviceValue" step="0.01" min="0" />
+
+          <label for="serviceLocation">Localização:</label>
+          <input type="text" id="serviceLocation" />
+
+          <button type="submit">Cadastrar Serviço</button>
+        </form>
+      </div>
+
+      <div id="demandTab" class="tab-content">
+        <h2>Demandar Serviço</h2>
+        <form id="demandForm">
+          <label for="demandUser">Usuário:</label>
+          <select id="demandUser" required>
+            <option value="">Selecione um usuário</option>
+          </select>
+
+          <label for="demandCategory">Categoria do Serviço:</label>
+          <input
+            type="text"
+            id="demandCategory"
+            required
+            placeholder="Ex: Encanamento"
+          />
+
+          <label for="demandDescription">Descrição:</label>
+          <textarea id="demandDescription" rows="3" required></textarea>
+
+          <label for="demandBudget">Orçamento Máximo (R$):</label>
+          <input type="number" id="demandBudget" step="0.01" min="0" />
+
+          <label for="demandLocation">Localização:</label>
+          <input type="text" id="demandLocation" />
+
+          <label for="demandDeadline">Prazo:</label>
+          <input type="date" id="demandDeadline" />
+
+          <button type="submit">Cadastrar Demanda</button>
+        </form>
+      </div>
+
+      <div id="listTab" class="tab-content">
+        <h2>Listagens</h2>
+
+        <div>
+          <h3>Usuários Cadastrados</h3>
+          <table id="usersTable">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Tipo</th>
+                <th>Habilidades/Interesses</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Serviços Ofertados</h3>
+          <table id="servicesTable">
+            <thead>
+              <tr>
+                <th>Profissional</th>
+                <th>Categoria</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Localização</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Demandas de Serviços</h3>
+          <table id="demandsTable">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Categoria</th>
+                <th>Descrição</th>
+                <th>Orçamento</th>
+                <th>Localização</th>
+                <th>Prazo</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
